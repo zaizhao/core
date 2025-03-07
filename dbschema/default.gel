@@ -1,0 +1,21 @@
+module default {
+    # 领域数据定义
+    type Domain {
+        required name: str;
+    }
+
+    # 公司数据定义
+    type Company {
+        required name: str {
+            constraint exclusive;
+        };
+        # 比如人工智能、机器人, 公司可能在多个领域
+        multi domains: Domain;
+    }
+
+    # 招聘岗位数据定义
+    type Position {
+        required name: str;
+        required link company: Company;
+    }
+}
