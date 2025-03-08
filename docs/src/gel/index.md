@@ -1,8 +1,4 @@
-# Zaizhao core
-
-> Gel is a data layer designed to help you **figure out storage** in application - also fast.
-
-## 为什么选择 Gel 数据库?
+# 快速入门 Gel 数据库
 
 > One data model and a unified query-layer, NO JOINS, NO ORM, 
 
@@ -22,35 +18,3 @@
 3. 内置简单强大的用户验证解决方案, 与数据库访问策略控制可以完全结合起来.
 4. 客户端 SDK, HTTP Query 与 GraphQL 查询支持, 方便集成扩展.
 5. 向量存储及 AI 能力的加持, 数据库扩展系统.
-
-[📌 快速入门 Gel 数据库的学习文档传送门]()
-
-## 产品文档
-
-目录 **docs** 是**在招**的文档中心, 使用 [mdbook](https://rust-lang.github.io/mdBook/) 来管理和生成网站, 本地预览:
-
-```bash
-cd docs/
-mdbook server --open # open in http://localhost:3000
-```
-
-## 本地开发
-
-本地环境配置
-
-## 生产部署
-
-- 单机部署
-- 生产环境
-- 性能压测
-- 集群部署(待学习整理)
-
-## 版权 LICENSE
-
-[MIT](./LICENSE)
-
-
-
-
-
-

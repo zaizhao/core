@@ -1,0 +1,10 @@
+# 与业务无关的公共模块
+module common {
+    # 认证模块
+    module auth {
+        type Account {
+            required name: str;
+            required password: str;
+        }
+    }
+}

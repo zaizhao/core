@@ -1,0 +1,6 @@
+[book]
+authors = ["lonexw"]
+language = "zh-CN"
+multilingual = false
+src = "src"
+title = "Zaizhao Docs"
