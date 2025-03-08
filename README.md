@@ -23,7 +23,7 @@
 4. 客户端 SDK, HTTP Query 与 GraphQL 查询支持, 方便集成扩展.
 5. 向量存储及 AI 能力的加持, 数据库扩展系统.
 
-[📌 快速入门 Gel 数据库的学习文档传送门]()
+[📌 快速入门 Gel 数据库的学习文档传送门](https://zaizhao.github.io/core/gel/index.html)
 
 ## 产品文档
 
