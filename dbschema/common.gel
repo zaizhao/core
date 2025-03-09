@@ -2,6 +2,10 @@
 module common {
     # 认证模块
     module auth {
+        type User {
+            required name: str;
+        }
+        
         type Account {
             required name: str;
             required password: str;

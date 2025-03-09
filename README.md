@@ -36,11 +36,85 @@ mdbook server --open # open in http://localhost:3000
 
 ## 本地开发
 
-本地环境配置
+在本地进行数据库层面的开发工作, 只需要熟悉 [Gel CLI](https://zaizhao.github.io/core/gel/cli.html) 和[模型定义](https://zaizhao.github.io/core/gel/schema.html)的知识即可.
+
+```bash
+gel --help
+```
+
+单机部署开发测试数据库服务:
+
+```bash
+# CentOS, 增加软件源
+sudo curl --proto '=https' --tlsv1.2 -sSfL \
+https://packages.geldata.com/rpm/gel-rhel.repo \
+ > /etc/yum.repos.d/gel.repo
+# 可能需要修改配置, add gel.repo to [repolist]
+vim /etc/yum/pluginconf.d/releasever_adapter.conf
+yum install gel-6
+
+# Enable Systemd Unit, data files at /var/lib/.
+# gel-server-6 cannot be run as root.
+sudo systemctl enable --now gel-server-6 
+
+# Upgrade Gel
+sudo yum update gel-6
+sudo systemctl restart gel-server-6
+
+# 记得处理服务本身防火墙或安全组规则的问题, 保障所需端口畅通;
+```
+
+如何设置数据库运行[环境变量](https://docs.geldata.com/reference/reference/environment#ref-reference-environment):
+
+```bash
+systemctl edit --full gel-server-6
+
+    # /usr/lib/systemd/system/gel-server-6.service
+    [Service]
+    Environment="GEL_SERVER_TLS_CERT_MODE=generate_self_signed"
+    Environment="GEL_SERVER_ADMIN_UI=enabled"
+
+systemctl restart gel-server-6
+```
+
+连接数据库:
+
+```bash
+# Get the Unix socket directory
+RUNSTATE_DIR=$(systemctl show gel-server-6 -p ExecStart | \
+>  grep -o -m 1 -- "--runstate-dir=[^ ]\+" | \
+>  awk -F "=" '{print $2}')
+
+# Set a password
+echo -n "> " && read -s PASSWORD
+sudo gel --port 5656 --tls-security insecure --admin \
+>  --unix-path $RUNSTATE_DIR \
+>  query "ALTER ROLE admin SET password := '$PASSWORD'"
+
+# 修改监听地址和端口, 默认是 localhost:5656
+gel --port 5656 --tls-security insecure --password query \
+ "CONFIGURE INSTANCE SET listen_addresses := {'0.0.0.0'};"
+
+# 访问远程数据库
+gel instance link --host {your_dev_host} --port 5656 \
+ --user admin --branch main --trust-tls-cert \
+ gel_dev_server # 起个别名方便使用
+
+gel -I gel_dev_server
+```
+
+健康检查:
+
+```bash
+# Check Instance Aliveness
+curl http://<hostname>:<port>/server/status/alive
+
+# Check Instance Readiness
+curl http://<hostname>:<port>/server/status/ready
+```
 
 ## 生产部署
 
-- 单机部署
 - 生产环境
 - 性能压测
 - 集群部署(待学习整理)

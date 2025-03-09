@@ -6,7 +6,9 @@ module app {
     module core {
         type Field {
             required name: str;
-            required posTypeList: array<PositionType>;
+            multi posTypes: PositionType {
+                constraint exclusive;
+            };
         }
 
         type Company {

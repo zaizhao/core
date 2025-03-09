@@ -5,7 +5,12 @@
         "errmessage",
         "lonexw",
         "pgvector",
+        "pluginconf",
+        "releasever",
+        "repolist",
+        "RUNSTATE",
         "signup",
+        "tlsv",
         "webauthn",
         "zaizhao"
     ]
