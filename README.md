@@ -99,21 +99,28 @@ gel --port 5656 --tls-security insecure --password query \
 gel instance link --host {your_dev_host} --port 5656 \
  --user admin --branch main --trust-tls-cert \
  gel_dev_server # 起个别名方便使用
-
 gel -I gel_dev_server
+# WebUI, 记得在环境变量中配置启动 
+http://<hostname>:<port>/ui
 ```
+- CA 证书相关的讯息: https://docs.geldata.com/reference/reference/environment#gel-server-security
+- [更详细的数据库管理指引](https://zaizhao.github.io/core/gel/admin.html)
 
 健康检查:
 
 ```bash
 # Check Instance Aliveness
-curl http://<hostname>:<port>/server/status/alive
-
+http://<hostname>:<port>/server/status/alive
 # Check Instance Readiness
-curl http://<hostname>:<port>/server/status/ready
+http://<hostname>:<port>/server/status/ready
 ```
 
 ## 生产部署
+
+> Gel 提供的数据库云服务: https://docs.geldata.com/cloud
+
+hosting multiple Gel instances on one Postgres cluster
+https://docs.geldata.com/reference/reference/environment#gel-server-tenant-id
 
 - 生产环境
 - 性能压测

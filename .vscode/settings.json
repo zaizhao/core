@@ -2,7 +2,9 @@
     "cSpell.words": [
         "anyreal",
         "dbschema",
+        "edgeql",
         "errmessage",
+        "ilike",
         "lonexw",
         "pgvector",
         "pluginconf",
@@ -11,6 +13,7 @@
         "RUNSTATE",
         "signup",
         "tlsv",
+        "urlencode",
         "webauthn",
         "zaizhao"
     ]

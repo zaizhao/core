@@ -2,7 +2,7 @@
 
 **数据模型定义**是业务系统的基石, Gel 提供强类型、高级的 SDL(Schema definition language)语言, 以**在招**的业务系统为例: 
 
-Link to GelUI path: https://github.com/
+[Login to Gel WebUI for dev server](https://8.140.249.106:5656/ui)
 
 ### 基础概念
 
@@ -176,7 +176,9 @@ gel extension list
 
 ## **Migrations** 
 
-可以记录数据库 Schema 的变更历史, 随时回滚, 并将模型 SDL 自动转换为数据库可以理解的 DDL(data definition language) 序列, 方便在开发过程中轻松的改进数据模型.  👉 [Guide to Gel migrations](https://docs.geldata.com/resources/guides/migrations)
+可以记录数据库 Schema 的变更历史, 随时回滚, 并将模型 SDL 自动转换为数据库可以理解的 DDL(data definition language) 序列, 方便在开发过程中轻松的改进数据模型. 
+
+👉 [Guide to Gel migrations](https://docs.geldata.com/resources/guides/migrations)
 
 ```bash
 gel migration create    # 生成迁移记录
@@ -185,8 +187,12 @@ gel migrate             # 应用迁移到数据库
 
 ## **Branch** 
 
-代码仓库分支的概念同理, 可以使用 ```gel branch``` 命令方便地创建、删除和切换分支, 简化开发协作流程. 👉 [Branches references](https://docs.geldata.com/reference/datamodel/branches#ref-datamodel-branches)
+代码仓库分支的概念同理, 可以使用 ```gel branch``` 命令方便地创建、删除和切换分支, 简化开发协作流程. 
+
+👉 [Branches references](https://docs.geldata.com/reference/datamodel/branches#ref-datamodel-branches)
 
 ## **Module** 
 
-可以理解为一个命名空间, 复杂项目可以用 module 更好的划分 Schema 定义. 👉 [Module references](https://docs.geldata.com/reference/datamodel/modules#ref-datamodel-modules)
+可以理解为一个命名空间, 复杂项目可以用 module 更好的划分 Schema 定义. 
+
+👉 [Module references](https://docs.geldata.com/reference/datamodel/modules#ref-datamodel-modules)
