@@ -40,6 +40,8 @@ type Game {
 - [Constraints 条件约束](https://docs.geldata.com/reference/stdlib/constraints#ref-std-constraints) | [ Indexes 索引](https://docs.geldata.com/reference/datamodel/indexes) 
 - [Computed properties and links](https://docs.geldata.com/reference/datamodel/computeds) | [Link properties](https://docs.geldata.com/reference/datamodel/linkprops#ref-datamodel-linkprops)
 
+***gel describe object [options] name*** 与 ***gel describe schema*** 命令可以辅助我们在命令行查看 schema 定义.
+
 ### Abstract 抽象与 [Inheritance 继承](https://docs.geldata.com/reference/datamodel/inheritance)
 
 ```python

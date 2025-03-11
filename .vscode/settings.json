@@ -6,6 +6,7 @@
         "errmessage",
         "ilike",
         "lonexw",
+        "passwordless",
         "pgvector",
         "pluginconf",
         "releasever",

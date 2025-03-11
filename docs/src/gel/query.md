@@ -69,7 +69,8 @@ using extension edgeql_http;
 
 # terminal
 curl -G https://<cloud-instance-host>:<cloud-instance-port>/branch/main/edgeql \
- -H "Authorization: Bearer <secret-key> \
+ -H "Authorization: Bearer <secret-key>" \
+ -H "X-EdgeDB-User: admin" \
  --data-urlencode "query=select Person {*};"
 
  # Support POST & GET Methods, fields:
